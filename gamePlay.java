@@ -5,7 +5,12 @@
  *  The user can interact with the game by some basic command.
  *  Date: April 17, 2017
  */
+<<<<<<< HEAD
 import java.io.*;
+=======
+package robotGame;
+
+>>>>>>> 69089d4ff448e74eb1441541770bb3b2be758344
 import java.util.Scanner;
 /*
  *  ClassName: gamePlay
