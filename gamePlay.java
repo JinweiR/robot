@@ -5,12 +5,7 @@
  *  The user can interact with the game by some basic command.
  *  Date: April 17, 2017
  */
-<<<<<<< HEAD
 import java.io.*;
-=======
-package robotGame;
-
->>>>>>> 69089d4ff448e74eb1441541770bb3b2be758344
 import java.util.Scanner;
 /*
  *  ClassName: gamePlay
@@ -33,57 +28,59 @@ public class gamePlay {
       boolean err = false;         //Record error
       String temp2 = new String(); //Store user input
       String command = new String();  //The command String
+      String buffer = new String();
 
       //Prompt user
-      System.out.println("Please enter the initial horizontal location: ");
       Scanner in = new Scanner(System.in);
       //Ask for input
       while( conti1 ){
-         err = false;
+         System.out.println("Please enter the initial horizontal location: ");
          //Record the x coordinate
          if( in.hasNextInt() ){
             temp = in.nextInt();
             //Check range
             if( temp > 0 && temp < x_size ){
                x_location = temp;
+               conti1 = false;
             }
             else{
                System.out.println(temp + " is not in range. ");
-               err = true;
             }
-            //Ask for input
-            if(!err){
-               System.out.println("Please enter the initial vertical "
-                     + "location: ");
-            }
-            if( in.hasNextInt() ){	
-               temp = in.nextInt();
-               //Check range
-               if( temp > 0 && temp < y_size ){
-                  y_location = temp;
-                  if( !err ){
-                     conti1 = false;
-                  }
-               }
-               //Print the result
-               else{
-                  System.out.println(temp + " is not in range.");
-                  err = true;
-               }
-            }
-            //Recompt the user
-            if(err){
-               System.out.println("Not valid.");
-               err = false;
-               conti1 = true;
-            }
-         }	
+         }
+         else{
+            System.out.println("Not valid.");
+            buffer = in.next();
+         }
+
       }
+      conti1 = true;
+      //Ask for input
+      while(conti1){
+         System.out.println("Please enter the initial vertical location: ");
+         if( in.hasNextInt() ){	
+            temp = in.nextInt();
+            //Check range
+            if( temp > 0 && temp < y_size ){
+               y_location = temp;
+               conti1 = false;
+            }
+            //Print the result
+            else{
+               System.out.println(temp + " is not in range.");
+            }
+         }
+         else{
+            System.out.println("Not valid.");
+            buffer = in.next();
+         }
+         //Reprompt the user
+      }	
+
       //Prompt the user
-      System.out.println("Please enter the initial facing direction:");
       while( conti2 ){
-         if( in.hasNextLine() ){
-            temp2 = in.nextLine();
+         System.out.println("Please enter the initial facing direction:");
+         if( in.hasNext() ){
+            temp2 = in.next();
             //Check validity of direction
             if(temp2.equals("E")||temp2.equals("W")||
                   temp2.equals("S")||temp2.equals("N")){
@@ -102,7 +99,7 @@ public class gamePlay {
       while( conti3 ){
          System.out.println("Please enter command: ");
          if( in.hasNext() ){
-            command = in.nextLine();
+            command = in.next();
          }
          //Change the string to char array
          char[]commands = command.toCharArray();
