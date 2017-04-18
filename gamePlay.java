@@ -28,7 +28,7 @@ public class gamePlay {
       boolean err = false;         //Record error
       String temp2 = new String(); //Store user input
       String command = new String();  //The command String
-      String buffer = new String();
+      String buffer = new String();   //Buffer to clear stdin
 
       //Prompt user
       Scanner in = new Scanner(System.in);

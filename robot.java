@@ -118,12 +118,12 @@ public class robot {
          //Move within the bound
          case 'M': 
             if(this.direction == 'N'){
-               if(this.y_location >= y_size ){
+               if(this.y_location >= y_size - 1 ){
                   return false;
                }
             }
             else if(this.direction == 'E'){
-               if(this.x_location >= x_size ){
+               if(this.x_location >= x_size - 1 ){
                   return false;
                }
             }
