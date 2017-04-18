@@ -5,8 +5,8 @@
  *  some useful member methods to manipulate the robot.
  *  Date: April 17, 2017
  */
-package robotGame;
 
+import java.io.*;
 /*
  *  ClassName: robot
  *  Author: Jinwei Ren    (jir017@ucsd.edu)
